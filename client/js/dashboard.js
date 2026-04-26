@@ -1,5 +1,6 @@
 console.log("PAGE LOADED AT:", new Date().toLocaleTimeString());
 console.log("dashboard.js file loaded successfully");
+const API_BASE_URL = window.location.origin;
 async function uploadAndAnalyze() {
   const token = localStorage.getItem("token");
   const job_desc = document.getElementById("job_desc").value;
@@ -46,7 +47,7 @@ const progressInterval = setInterval(() => {
   }
 }, 500);
   try {
-    const response = await fetch("http://localhost:5000/api/full-analyze", {
+    const response = await fetch(`${API_BASE_URL}/api/full-analyze`, {
       method: "POST",
       headers: {
         Authorization: token
@@ -117,7 +118,7 @@ async function loadDashboardStats() {
   if (!token) return;
 
   try {
-    const response = await fetch("http://localhost:5000/api/reports", {
+    const response = await fetch(`${API_BASE_URL}/api/reports`, {
       method: "GET",
       headers: { "Authorization": token }
     });
@@ -162,7 +163,7 @@ async function loadScoreChart() {
   if (!token) return;
 
   try {
-    const response = await fetch("http://localhost:5000/api/reports", {
+    const response = await fetch(`${API_BASE_URL}/api/reports`, {
       method: "GET",
       headers: { "Authorization": token }
     });

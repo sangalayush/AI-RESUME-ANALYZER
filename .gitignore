@@ -1,0 +1,11 @@
+node_modules/
+server/node_modules/
+ai-service/venv/
+__pycache__/
+*.pyc
+.env
+server/.env
+uploads/
+server/uploads/
+.DS_Store
+Thumbs.db

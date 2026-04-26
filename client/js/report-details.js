@@ -1,3 +1,5 @@
+const API_BASE_URL = window.location.origin;
+
 async function fetchReportDetails() {
   const token = localStorage.getItem("token");
   const reportDetails = document.getElementById("reportDetails");
@@ -17,7 +19,7 @@ async function fetchReportDetails() {
   }
 
   try {
-    const response = await fetch(`http://localhost:5000/api/reports/${reportId}`, {
+    const response = await fetch(`${API_BASE_URL}/api/reports/${reportId}`, {
       method: "GET",
       headers: {
         Authorization: token
@@ -80,7 +82,7 @@ function logout() {
 function downloadPDF(reportId) {
   const token = localStorage.getItem("token");
 
-  fetch(`http://localhost:5000/api/reports/${reportId}/download`, {
+  fetch(`${API_BASE_URL}/api/reports/${reportId}/download`, {
     method: "GET",
     headers: { Authorization: token }
   })

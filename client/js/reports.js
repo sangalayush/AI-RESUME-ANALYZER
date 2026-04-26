@@ -1,4 +1,5 @@
 let allReports = [];
+const API_BASE_URL = window.location.origin;
 async function fetchReports() {
   const token = localStorage.getItem("token");
   const reportsList = document.getElementById("reportsList");
@@ -10,7 +11,7 @@ async function fetchReports() {
   }
 
   try {
-    const response = await fetch("http://localhost:5000/api/reports", {
+    const response = await fetch(`${API_BASE_URL}/api/reports`, {
       method: "GET",
       headers: {
         Authorization: token,
@@ -164,7 +165,7 @@ async function deleteReport(reportId) {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/reports/${reportId}`,
+      `${API_BASE_URL}/api/reports/${reportId}`,
       {
         method: "DELETE",
         headers: {
@@ -193,7 +194,7 @@ function downloadPDF(reportId) {
     return;
   }
 
-  fetch(`http://localhost:5000/api/reports/${reportId}/download`, {
+  fetch(`${API_BASE_URL}/api/reports/${reportId}/download`, {
     method: "GET",
     headers: {
       Authorization: token,

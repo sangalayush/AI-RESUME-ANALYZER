@@ -5,6 +5,7 @@ const axios = require("axios");
 const fs = require("fs");
 const authMiddleware = require("../middleware/authMiddleware");
 const Report = require("../models/Report");
+const aiServiceUrl = process.env.AI_SERVICE_URL || "http://127.0.0.1:6000";
 
 // Multer Storage
 const storage = multer.diskStorage({
@@ -60,7 +61,7 @@ router.post(
       const resume_text = await extractTextFromPDF(filePath);
 
       // Call Flask AI service
-      const response = await axios.post("http://127.0.0.1:6000/analyze", {
+      const response = await axios.post(`${aiServiceUrl}/analyze`, {
         resume_text: resume_text,
         job_desc: job_desc,
       });
