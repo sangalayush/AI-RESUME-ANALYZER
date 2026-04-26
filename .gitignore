@@ -1,11 +1,7 @@
 node_modules/
-server/node_modules/
-ai-service/venv/
-__pycache__/
-*.pyc
 .env
-server/.env
 uploads/
-server/uploads/
+venv/
+__pycache__/
+*.log
 .DS_Store
-Thumbs.db
