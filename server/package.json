@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "axios": "^1.14.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.3.1",
+    "multer": "^2.1.1",
+    "pdfjs-dist": "^5.6.205",
+    "pdfkit": "^0.18.0"
+  }
+}

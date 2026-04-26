@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/942/942748.png"
+    />
+    <meta charset="UTF-8" />
+    <title>Dashboard - AI Resume Analyzer</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <h2>AI Resume Analyzer</h2>
+      <button onclick="logout()">Logout</button>
+    </div>
+
+    <div class="main">
+      <div class="card">
+        <h2>Dashboard</h2>
+        <p id="stats"></p>
+
+        <div class="stats-box">
+          <div class="stats-card">
+            <h3 id="totalReports">0</h3>
+            <p>Total Reports</p>
+          </div>
+          <div class="stats-card">
+            <h3 id="latestScore">0%</h3>
+            <p>Latest Match Score</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Upload Resume & Analyze</h2>
+
+        <label><b>Job Description</b></label>
+        <textarea
+          id="job_desc"
+          rows="6"
+          placeholder="Paste Job Description here..."
+        ></textarea>
+
+        <label><b>Upload Resume (PDF)</b></label>
+        <input type="file" id="resumeFile" />
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          onclick="uploadAndAnalyze(event)"
+        >
+          Upload & Analyze
+        </button>
+
+        <button type="button" class="btn btn-gray" onclick="goToReports()">
+          View Reports
+        </button>
+       <div id="loaderBox" class="loader-box">
+  <div class="loader"></div>
+  <p id="loadingText">Analyzing Resume... Please wait</p>
+
+  <div class="progress-container">
+    <div id="progressBar" class="progress-bar"></div>
+  </div>
+</div>
+        <p id="resultMsg"></p>
+      </div>
+      <div class="card">
+        <h2>Score Graph</h2>
+        <canvas id="scoreChart"></canvas>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/dashboard.js"></script>
+
+    <div id="successPopup" class="popup">
+  <div class="popup-content">
+    <h2>✅ Analysis Complete!</h2>
+    <p id="popupScore"></p>
+    <p>Your report has been saved successfully.</p>
+    <button class="btn btn-primary" onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+<audio id="successSound">
+  <source src="https://www.soundjay.com/buttons/sounds/button-3.mp3" type="audio/mpeg">
+</audio>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/942/942748.png">
+  <meta charset="UTF-8">
+  <title>Reports - AI Resume Analyzer</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <div class="navbar">
+    <h2>My Reports</h2>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <div class="main">
+
+   <div class="card">
+  <h2>Reports History</h2>
+
+  <button class="btn btn-gray" onclick="goToDashboard()">Back to Dashboard</button>
+
+  <br><br>
+
+  <input type="text" id="searchBox" placeholder="Search reports (JD / skills / suggestions)..." style="width:90%; padding:10px;">
+
+  <br><br>
+
+  <select id="filterScore" style="padding:10px;">
+    <option value="all">All Scores</option>
+    <option value="above50">Above 50%</option>
+    <option value="above70">Above 70%</option>
+    <option value="below50">Below 50%</option>
+  </select>
+
+  <select id="sortReports" style="padding:10px;">
+    <option value="latest">Sort: Latest First</option>
+    <option value="oldest">Sort: Oldest First</option>
+    <option value="highscore">Sort: Highest Score</option>
+    <option value="lowscore">Sort: Lowest Score</option>
+  </select>
+
+  <br><br>
+
+  <div id="reportsList"></div>
+</div>
+
+  </div>
+
+  <script src="../js/reports.js"></script>
+</body>
+</html>
